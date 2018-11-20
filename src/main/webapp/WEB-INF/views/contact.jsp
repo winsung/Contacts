@@ -3,7 +3,8 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.multi.contactsapp.domain.*" %>
 <%
-	List<Contact> contacts = (List<Contact>) request.getAttribute("contacts"); 
+	ContactList contactList = (ContactList) request.getAttribute("data");
+	List<Contact> contacts = contactList.getContacts();
 %> 
 
 <!DOCTYPE html>
