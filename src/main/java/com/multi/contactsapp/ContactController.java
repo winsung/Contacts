@@ -1,7 +1,5 @@
 package com.multi.contactsapp;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.multi.contactsapp.domain.Contact;
+import com.multi.contactsapp.domain.ContactList;
 import com.multi.contactsapp.service.ContactService;
 
 @Controller
@@ -20,11 +19,12 @@ public class ContactController {
 	//@GetMapping("list.do")
 	@RequestMapping(value="list.do", method=RequestMethod.GET)
 	public ModelAndView getContactList() {
-		List<Contact> contacts = contactService.getContactList();
+		ContactList contactList = contactService.getContactList();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("contacts", contacts);
+		mav.addObject("data", contactList);
 		mav.setViewName("contact");
 		return mav;
+		
 	}
 	
 	@RequestMapping(value="add.do", method=RequestMethod.POST)
