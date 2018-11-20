@@ -16,21 +16,10 @@ public class ContactService {
 	@Autowired
 	private ContactDAO contactDAO;
 	
-	/*
-	public List<Contact> getContactList() {
-		return contactDAO.getContactList();
-	}*/
-	
 	public ContactList getContactList() {
 		List<Contact> contacts = contactDAO.getContactList();
 		return new ContactList(0, 0, contacts.size(), contacts);
 	}
-	
-	/*
-	public List<Contact> getContactList(int pageNo, int pageSize) {
-		
-		return contactDAO.getContactList(pageNo, pageSize);
-	}*/
 	
 	public ContactList getContactList(int pageNo, int pageSize) {
 		return new ContactList(pageNo, pageSize, contactDAO.getContactCount(), contactDAO.getContactList(pageNo, pageSize));

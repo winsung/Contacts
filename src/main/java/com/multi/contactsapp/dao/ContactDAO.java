@@ -30,7 +30,7 @@ public class ContactDAO {
 	}
 	
 	public Contact getContactOne(Contact contact) {
-		return sqlSession.selectOne("contact.selectone");
+		return sqlSession.selectOne("contact.selectone", contact);
 	}
 	
 	public int insertContact(Contact contact) {
